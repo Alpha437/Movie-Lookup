@@ -50,7 +50,6 @@ async function fetchMovies(url) {
     let data = await fetch(url);
     let resultData = await data.json();
     let videosResults = resultData.results;
-    console.log(videosResults);
     videosResults.forEach((video) => {
       const videoCard = document.createElement('article');
       videoCard.classList.add('card');
@@ -98,7 +97,6 @@ async function fetchDetails(video) {
       `https://api.themoviedb.org/3/${type}/${video.id}?language=en-US&api_key=23d1762f10bbb95408b360e74f7b3ac0`
     );
     let videoData = await data.json();
-    console.log(videoData);
 
     document.querySelector('.video--details').style.background = `url(${
       IMG_PATH + videoData.backdrop_path
@@ -117,10 +115,11 @@ async function fetchDetails(video) {
     let genresArray = videoData.genres.map((genre) => genre.name);
     let hours = String(Math.trunc(videoData.runtime / 60));
     let min = String(videoData.runtime - hours * 60);
+    let videoName = video.name ? video.name : video.title;
 
-    document.querySelector('.video--title').innerHTML = `${
-      video.name ? video.name : video.title
-    } <span class="year">(${year.getFullYear()})</span>`;
+    document.querySelector(
+      '.video--title'
+    ).innerHTML = `${videoName} <span class="year">(${year.getFullYear()})</span>`;
 
     document.querySelector(
       '.video--genres-and-release-date'
@@ -142,7 +141,6 @@ async function fetchDetails(video) {
       `https://api.themoviedb.org/3/${type}/${video.id}/credits?language=en-US&api_key=23d1762f10bbb95408b360e74f7b3ac0`
     );
     let videoCredits = await newData.json();
-    console.log(videoCredits);
     let crew = videoCredits.crew
       .slice()
       .sort((a, b) => b.popularity - a.popularity);
@@ -183,12 +181,13 @@ async function fetchDetails(video) {
       actorNameWrapper.append(actorScreenName);
 
       if (!actorImage.src.endsWith('null')) {
-        console.log(actorImage.src);
         actorCard.append(actorImage);
         actorCard.append(actorNameWrapper);
         document.querySelector('.video--cast').append(actorCard);
       }
     });
+    let title = videoName.toLowerCase().split(' ').join('-');
+    document.querySelector('.dlink').href = `https://moviesmod.dev/download-${title}`;
 
     wrapper.style.display = 'flex';
   } catch (error) {}
@@ -204,9 +203,7 @@ function closeVideoDetails() {
   wrapper.style.display = 'none';
 }
 
-
 fetchMovies(API_TRENDING);
-
 
 // Event listeners
 form.addEventListener('submit', search);
@@ -246,12 +243,11 @@ tvGenres.forEach((genre) => {
   });
 });
 
-
-
 wrapper.addEventListener('click', closeVideoDetails);
 exitBtn.addEventListener('click', closeVideoDetails);
 document.addEventListener('keydown', (e) => {
-  if(e.key == 'Escape' && wrapper.style.display == 'flex') {
+  if (e.key == 'Escape' && wrapper.style.display == 'flex') {
     closeVideoDetails();
   }
-})
+});
+x
