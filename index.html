@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Lookup</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="navigation-bar">
+      <div class="logo--wrapper">
+        <h1 class="logo">MOV-LOOKUP</h1>
+        <form role="search" class="search--form">
+          <input type="text" name="q" id="query" class="search" placeholder="What are you looking for?" size="35">
+          <button class="search--button">S</button>
+        </form>
+      </div>
+      <nav class="navigation-link--wrapper">
+        <ul class="navigation-links">
+          <li class="link">HOME</li>
+          <li class="link">MOVIES</li>
+          <li class="link movie--genre-holder">
+            GENRE
+            <ul class="movie--genre--wrapper">
+              <li class="movie--genre">ACTION</li>
+              <li class="movie--genre">ADVENTURE</li>
+              <li class="movie--genre">ANIMATION</li>
+              <li class="movie--genre">COMEDY</li>
+              <li class="movie--genre">CRIME</li>
+              <li class="movie--genre">DOCUMENTARY</li>
+              <li class="movie--genre">DRAMA</li>
+              <li class="movie--genre">FAMILY</li>
+              <li class="movie--genre">FANTASY</li>
+              <li class="movie--genre">HISTORY</li>
+              <li class="movie--genre">HORROR</li>
+              <li class="movie--genre">MUSIC</li>
+              <li class="movie--genre">MYSTERY</li>
+              <li class="movie--genre">ROMANCE</li>
+              <li class="movie--genre">SCIENCE FICTION</li>
+              <li class="movie--genre">TV MOVIE</li>
+              <li class="movie--genre">THRILLER</li>
+              <li class="movie--genre">WAR</li>
+              <li class="movie--genre">WESTERN</li>
+            </ul>
+          </li>
+          <li class="link">TV SERIES</li>
+          <li class="link tv--genre-holder">
+            SERIES GENRE
+            <ul class="tv--genre--wrapper">
+              <li class="tv--genre">ACTION & ADVENTURE</li>
+              <li class="tv--genre">ANIMATION</li>
+              <li class="tv--genre">COMEDY</li>
+              <li class="tv--genre">CRIME</li>
+              <li class="tv--genre">DOCUMENTARY</li>
+              <li class="tv--genre">DRAMA</li>
+              <li class="tv--genre">FAMILY</li>
+              <li class="tv--genre">KIDS</li>
+              <li class="tv--genre">MYSTERY</li>
+              <li class="tv--genre">NEWS</li>
+              <li class="tv--genre">REALITY</li>
+              <li class="tv--genre">SCI-FI & FANTASY</li>
+              <li class="tv--genre">SOAP</li>
+              <li class="tv--genre">TALK</li>
+              <li class="tv--genre">WAR & POLITICS</li>
+              <li class="tv--genre">WESTERN</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- <div class="video--details">
+        <img src="" alt="" class="video-backdrop--image">
+        <p class="video--summary"></p>
+      </div> -->
+
+    <section class="cards--wrapper">
+      <article class="card">
+        <img src="./images/peakpx.jpg" alt="movie-image" class="card--image">
+        <header class="card-title-wrapper">
+          <h3 class="card--heading">Interstellar</h3>
+          <span class="hidden"></span>
+        </header>
+      </article>
+    </section>
+  </div>
+
+  <div class="wrapper">
+    <button class="exit"><i class="bi bi-x"></i></button>
+    <div class="video--details">
+      <div class="video--image--wrapper">
+        <img src="./images/peakpx.jpg" alt="movie-image" class="video--details--image">
+        <p class="video--trailer--link">▶ Watch Trailer</p>
+        <p class="donwload-link">Download at <a class="dlink" href="http://" target="_blank"
+            rel="noopener noreferrer">moviesmod</a></p>
+      </div>
+
+      <article class="video--details--card">
+        <h3 class="video--title">Interstellar <span class="year">(2023)</span></h3>
+        <p class="video--genres-and-release-date">Action, Mystery, Sci-Fi | November 20, 2023 | 1hr 20mins</p>
+
+        <div class="video--summary--wrapper">
+          <h4 class="video--summary--heading">Overview</h4>
+          <p class="video--summary">A movie about time relativity and message sending through gravity.</p>
+        </div>
+
+        <p class="video--director">
+          <span class="video--director--heading">Director:</span>
+          Name
+        </p>
+
+        <div class="video--cast--wrapper">
+          <h4 class="video--cast--heading">Top Billed Cast</h4>
+
+          <div class="video--cast">
+            <div class="video--actor--card">
+              <img src="./images/peakpx.jpg" alt="movie-image" fetchpriority="high" class="actor--image">
+
+              <header class="video--actor--name--wrapper">
+                <h3 class="video--actor--name">Interstellar</h3>
+                <p class="video--actor--screen-name">Interstellar</p>
+              </header>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
