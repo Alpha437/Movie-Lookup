@@ -250,4 +250,3 @@ document.addEventListener('keydown', (e) => {
     closeVideoDetails();
   }
 });
-x
