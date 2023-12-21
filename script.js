@@ -9,6 +9,7 @@ const movieImages = document.querySelectorAll('.card--image');
 const movieNames = document.querySelectorAll('.card--heading');
 const wrapper = document.querySelector('.wrapper');
 const exitBtn = document.querySelector('.exit');
+const mobileMenu = document.querySelector('.navigation-link--wrapper');
 
 // Destructuring
 const [homeBtn, moviesBtn, genreBtn, seriesBtn, seriesGenreBtn] = links;
@@ -187,7 +188,9 @@ async function fetchDetails(video) {
       }
     });
     let title = videoName.toLowerCase().split(' ').join('-');
-    document.querySelector('.dlink').href = `https://moviesmod.dev/download-${title}`;
+    document.querySelector(
+      '.dlink'
+    ).href = `https://moviesmod.dev/download-${title}`;
 
     wrapper.style.display = 'flex';
   } catch (error) {}
@@ -201,6 +204,10 @@ function search(e) {
 
 function closeVideoDetails() {
   wrapper.style.display = 'none';
+}
+
+function closeMobileMenu() {
+  mobileMenu.style.display = 'none';
 }
 
 fetchMovies(API_TRENDING);
@@ -228,6 +235,7 @@ movieGenres.forEach((genre) => {
     fetchMovies(
       `https://api.themoviedb.org/3/discover/movie?api_key=23d1762f10bbb95408b360e74f7b3ac0&with_genres=${genreId}`
     );
+    setTimeout(closeMobileMenu, 100);
   });
 });
 
@@ -240,6 +248,7 @@ tvGenres.forEach((genre) => {
     fetchMovies(
       `https://api.themoviedb.org/3/discover/tv?api_key=23d1762f10bbb95408b360e74f7b3ac0&with_genres=${genreId}`
     );
+    setTimeout(closeMobileMenu, 100);
   });
 });
 
@@ -249,4 +258,24 @@ document.addEventListener('keydown', (e) => {
   if (e.key == 'Escape' && wrapper.style.display == 'flex') {
     closeVideoDetails();
   }
+});
+
+document.querySelector('.menu').addEventListener('click', () => {
+  mobileMenu.style.display = 'block';
+});
+
+document.querySelector('.movie--genre-holder').addEventListener('click', () => {
+  if (mobileMenu.style.display == 'block') {
+    document.querySelector('.movie--genre--wrapper').classList.toggle('block');
+  }
+});
+
+document.querySelector('.tv--genre-holder').addEventListener('click', () => {
+  if (mobileMenu.style.display == 'block') {
+    document.querySelector('.tv--genre--wrapper').classList.toggle('block');
+  }
+});
+
+document.querySelector('.exit-mobile').addEventListener('click', () => {
+  closeMobileMenu();
 });

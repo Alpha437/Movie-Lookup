@@ -17,18 +17,22 @@
   <div class="container">
     <header class="navigation-bar">
       <div class="logo--wrapper">
-        <h1 class="logo">MOV-LOOKUP</h1>
+        <div class="flex">
+          <h1 class="logo">MOV-LOOKUP</h1>
+          <button class="menu">H</button>
+        </div>
         <form role="search" class="search--form">
           <input type="text" name="q" id="query" class="search" placeholder="What are you looking for?" size="35">
           <button class="search--button">S</button>
         </form>
       </div>
       <nav class="navigation-link--wrapper">
+        <button class="exit exit-mobile"><i class="bi bi-x"></i></button>
         <ul class="navigation-links">
           <li class="link">HOME</li>
           <li class="link">MOVIES</li>
           <li class="link movie--genre-holder">
-            GENRE
+            <p class="name">GENRE</p>
             <ul class="movie--genre--wrapper">
               <li class="movie--genre">ACTION</li>
               <li class="movie--genre">ADVENTURE</li>
@@ -53,7 +57,7 @@
           </li>
           <li class="link">TV SERIES</li>
           <li class="link tv--genre-holder">
-            SERIES GENRE
+            <p class="name">SERIES GENRE</p>
             <ul class="tv--genre--wrapper">
               <li class="tv--genre">ACTION & ADVENTURE</li>
               <li class="tv--genre">ANIMATION</li>
